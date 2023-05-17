@@ -2,7 +2,7 @@
   "name": "playwright-helpers",
   "version": "1.0.0",
   "description": "Playwright test helpers",
-  "main": "main.js",
+  "main": "src/main.js",
   "devDependencies": {
     "@playwright/test": "^1.33.0",
     "@types/node": "~18",
