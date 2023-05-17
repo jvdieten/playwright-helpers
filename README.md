@@ -101,7 +101,7 @@ Support this project by becoming a [sponsor][sponsor].
 [typescript-5-0]: https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/
 [sponsor-badge]: https://img.shields.io/badge/♥-Sponsor-fc0fb5.svg
 [sponsor]: https://www.paypal.com/donate/?hosted_button_id=8BHNM42PKHJ5U
-[docs]: https://jvdieten.github.io/playwright-helpers/
+[docs]: https://jvdieten.github.io/playwright-helpers/modules.html
 [docsElementHelper]: https://jvdieten.github.io/playwright-helpers/classes/ElementHelper.html
 [docsRequestHelper]: https://jvdieten.github.io/playwright-helpers/classes/RequestHelper.html
 
