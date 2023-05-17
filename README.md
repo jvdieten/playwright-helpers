@@ -54,7 +54,7 @@ test('my test', async ({ page, requestHelper }) => {
   await page.goto('https://playwright.dev/');
 ```
 
-#### MockHelper
+### MockHelper
 Function for easy mock setup. You create a basedir to place your json mockfiles (in example below files are located in test/mocks folder) 
 
 ```ts
@@ -69,7 +69,7 @@ await mockHelper.mockEndpoint({
   mockDir: 'people', url: 'https://swapi.dev/api/people/.*'}, '200-ok')
 ```
 
-#### RequestHelper
+### RequestHelper
 
 Functionality like in Cypress where you can wait for intercept. First paramater is the regex url of the endpoint and second paramater is the action you want to perform.
 
@@ -82,9 +82,8 @@ Functionality like in Cypress where you can wait for intercept. First paramater 
 
 All available methods can be found in the [documentation][docsRequestHelper]
 
-#### ElementHelper
+### ElementHelper
 Element helper functions see [documentation][docsElementHelper]
-
 
 
 ### Documentation
@@ -102,7 +101,7 @@ Support this project by becoming a [sponsor][sponsor].
 [typescript-5-0]: https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/
 [sponsor-badge]: https://img.shields.io/badge/♥-Sponsor-fc0fb5.svg
 [sponsor]: https://www.paypal.com/donate/?hosted_button_id=8BHNM42PKHJ5U
-[docs]: docs/index.html
-[docsElementHelper]: docs/classes/ElementHelper.html
-[docsRequestHelper]: docs/classes/RequestHelper.html
+[docs]: https://jvdieten.github.io/playwright-helpers/
+[docsElementHelper]: https://jvdieten.github.io/playwright-helpers/classes/ElementHelper.html
+[docsRequestHelper]: https://jvdieten.github.io/playwright-helpers/classes/RequestHelper.html
 
