@@ -3,6 +3,7 @@
 [![Sponsor][sponsor-badge]][sponsor]
 [![TypeScript version][ts-badge]][typescript-5-0]
 [![Node.js version][nodejs-badge]][nodejs]
+[![NPM][npm-badge]][npm]
 
 ## Background
 
@@ -97,6 +98,8 @@ Support this project by becoming a [sponsor][sponsor].
 [ts-badge]: https://img.shields.io/badge/TypeScript-5.0-blue.svg
 [nodejs-badge]: https://img.shields.io/badge/Node.js->=%2018.12-blue.svg
 [nodejs]: https://nodejs.org/dist/latest-v18.x/docs/api/
+[npm-badge]: https://badge.fury.io/js/playwright-helpers.svg
+[npm]: https://www.npmjs.com/package/playwright-helpers
 [typescript]: https://www.typescriptlang.org/
 [typescript-5-0]: https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/
 [sponsor-badge]: https://img.shields.io/badge/♥-Sponsor-fc0fb5.svg
