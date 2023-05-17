@@ -2,8 +2,8 @@
   "name": "playwright-helpers",
   "version": "1.0.1",
   "description": "Playwright test helpers",
-  "main": "dist/src/main",
-  "typings": "dist/src/main",
+  "main": "build/src/main",
+  "typings": "build/src/main",
   "devDependencies": {
     "@playwright/test": "^1.33.0",
     "@types/node": "~18",
