@@ -1,6 +1,6 @@
 {
   "name": "playwright-helpers",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Playwright test helpers",
   "main": "src/main.js",
   "devDependencies": {
