@@ -37,18 +37,18 @@
   "keywords": [
     "playwright",
     "playwright-test",
-    "api",
-    "test",
+    "playwright api",
+    "playwright functions",
     "playwright helpers",
     "playwright test",
     "playwright locators",
-    "response",
-    "network",
-    "requests",
-    "wait",
-    "intercept",
-    "mock",
-    "helpers"
+    "playwright methods",
+    "playwright response",
+    "playwright network",
+    "playwright requests",
+    "playwright wait",
+    "playwright intercept",
+    "playwright mock"
   ],
   "author": "Joost van Dieten",
   "license": "MIT"
