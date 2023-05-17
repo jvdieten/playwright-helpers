@@ -1,0 +1,55 @@
+{
+  "name": "playwright-helpers",
+  "version": "1.0.0",
+  "description": "Playwright test helpers",
+  "main": "main.js",
+  "devDependencies": {
+    "@playwright/test": "^1.33.0",
+    "@types/node": "~18",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "~8.38",
+    "eslint-config-prettier": "~8.8",
+    "eslint-plugin-jest": "~27.2",
+    "prettier": "~2.8",
+    "rimraf": "~5.0",
+    "ts-api-utils": "~0.0.44",
+    "typedoc": "^0.24.7",
+    "typescript": "~5.0"
+  },
+  "dependencies": {
+    "tslib": "~2.5"
+  },
+  "peerDependencies": {
+    "@playwright/test": "~1.33.0",
+    "playwright": "~1.33.0"
+  },
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "docs": "npx typedoc src/main.ts",
+    "lint": "eslint . --ext .ts --ext .mts",
+    "test": "npx playwright test",
+    "prettier": "prettier --config .prettierrc --write .",
+    "test:watch": "jest --watch"
+  },
+  "keywords": [
+    "playwright",
+    "playwright-test",
+    "api",
+    "test",
+    "playwright helpers",
+    "playwright test",
+    "playwright locators",
+    "response",
+    "network",
+    "requests",
+    "wait",
+    "intercept",
+    "mock",
+    "helpers"
+  ],
+  "author": "Joost van Dieten",
+  "license": "MIT"
+}
