@@ -10,7 +10,7 @@
 This project is intended to be used with the latest release of [Playwright test](https://playwright.dev/docs/api/class-test).
 
 Playwright is great for test automation this package is to make it even better with support for advanced request handling, mocking and some
-elment helper functions.
+element helper functions.
 
 
 ### Installation
