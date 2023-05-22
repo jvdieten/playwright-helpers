@@ -14,10 +14,11 @@
 <h2>playwright-helpers</h2></div>
 <div class="tsd-panel tsd-typography"><a id="md:playwright-helpers" class="tsd-anchor"></a><h1><a href="#md:playwright-helpers">Playwright-helpers</a></h1><p><a href="https://www.paypal.com/donate/?hosted_button_id=8BHNM42PKHJ5U"><img src="https://img.shields.io/badge/%E2%99%A5-Sponsor-fc0fb5.svg" alt="Sponsor"></a>
 <a href="https://devblogs.microsoft.com/typescript/announcing-typescript-5-0/"><img src="https://img.shields.io/badge/TypeScript-5.0-blue.svg" alt="TypeScript version"></a>
-<a href="https://nodejs.org/dist/latest-v18.x/docs/api/"><img src="https://img.shields.io/badge/Node.js-%3E=%2018.12-blue.svg" alt="Node.js version"></a></p>
+<a href="https://nodejs.org/dist/latest-v18.x/docs/api/"><img src="https://img.shields.io/badge/Node.js-%3E=%2018.12-blue.svg" alt="Node.js version"></a>
+<a href="https://www.npmjs.com/package/playwright-helpers"><img src="https://badge.fury.io/js/playwright-helpers.svg" alt="NPM"></a></p>
 <a id="md:background" class="tsd-anchor"></a><h2><a href="#md:background">Background</a></h2><p>This project is intended to be used with the latest release of <a href="https://playwright.dev/docs/api/class-test">Playwright test</a>.</p>
 <p>Playwright is great for test automation this package is to make it even better with support for advanced request handling, mocking and some
-elment helper functions.</p>
+element helper functions.</p>
 <a id="md:installation" class="tsd-anchor"></a><h3><a href="#md:installation">Installation</a></h3><pre><code><span class="hl-0">$</span><span class="hl-1"> </span><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><span class="hl-1"> </span><span class="hl-0">playwright</span><span class="hl-1">-</span><span class="hl-0">helpers</span><span class="hl-1"> --</span><span class="hl-0">save</span><span class="hl-1">-</span><span class="hl-0">dev</span>
 </code><button>Copy</button></pre>
 <a id="md:package-contents" class="tsd-anchor"></a><h3><a href="#md:package-contents">Package contents</a></h3><p>Currently this package consists of the following helpers:</p>
@@ -30,19 +31,19 @@ elment helper functions.</p>
 </code><button>Copy</button></pre>
 <a id="md:usage-in-your-tests" class="tsd-anchor"></a><h5><a href="#md:usage-in-your-tests">Usage in your tests</a></h5><pre><code class="language-ts"><span class="hl-7">test</span><span class="hl-1">(</span><span class="hl-3">&#39;my test&#39;</span><span class="hl-1">, </span><span class="hl-4">async</span><span class="hl-1"> ({ </span><span class="hl-0">page</span><span class="hl-1">, </span><span class="hl-0">requestHelper</span><span class="hl-1"> }) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">page</span><span class="hl-1">.</span><span class="hl-7">goto</span><span class="hl-1">(</span><span class="hl-3">&#39;https://playwright.dev/&#39;</span><span class="hl-1">);</span>
 </code><button>Copy</button></pre>
-<a id="md:mockhelper" class="tsd-anchor"></a><h4><a href="#md:mockhelper">MockHelper</a></h4><p>Function for easy mock setup. You create a basedir to place your json mockfiles (in example below files are located in test/mocks folder) </p>
+<a id="md:mockhelper" class="tsd-anchor"></a><h3><a href="#md:mockhelper">MockHelper</a></h3><p>Function for easy mock setup. You create a basedir to place your json mockfiles (in example below files are located in test/mocks folder) </p>
 <pre><code class="language-ts"><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-7">MockHelper</span><span class="hl-1">(</span><span class="hl-0">page</span><span class="hl-1">, </span><span class="hl-3">&#39;test/mocks&#39;</span><span class="hl-1">)</span>
 </code><button>Copy</button></pre>
 <p>For each API endpoint you define a directory where you place your scenario files. In the code below the api mockDir is people and the scenario is 200-ok. 
 This will return the 200-ok.json from location test/mocks/people</p>
 <pre><code class="language-ts"><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">mockHelper</span><span class="hl-1">.</span><span class="hl-7">mockEndpoint</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">mockDir:</span><span class="hl-1"> </span><span class="hl-3">&#39;people&#39;</span><span class="hl-1">, </span><span class="hl-0">url:</span><span class="hl-1"> </span><span class="hl-3">&#39;https://swapi.dev/api/people/.*&#39;</span><span class="hl-1">}, </span><span class="hl-3">&#39;200-ok&#39;</span><span class="hl-1">)</span>
 </code><button>Copy</button></pre>
-<a id="md:requesthelper" class="tsd-anchor"></a><h4><a href="#md:requesthelper">RequestHelper</a></h4><p>Functionality like in Cypress where you can wait for intercept. First paramater is the regex url of the endpoint and second paramater is the action you want to perform.</p>
+<a id="md:requesthelper" class="tsd-anchor"></a><h3><a href="#md:requesthelper">RequestHelper</a></h3><p>Functionality like in Cypress where you can wait for intercept. First paramater is the regex url of the endpoint and second paramater is the action you want to perform.</p>
 <pre><code class="language-ts"><span class="hl-1">  </span><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">requestHelper</span><span class="hl-1">.</span><span class="hl-7">actionAndwaitForResponse</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-3">&quot;indexes/.*/queries&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">page</span><span class="hl-1">.</span><span class="hl-7">type</span><span class="hl-1">(</span><span class="hl-3">&#39;.DocSearch-Input&#39;</span><span class="hl-1">, </span><span class="hl-3">&#39;network&#39;</span><span class="hl-1">));</span>
 </code><button>Copy</button></pre>
-<p>All available methods can be found in the <a href="docs/classes/RequestHelper.html">documentation</a></p>
-<a id="md:elementhelper" class="tsd-anchor"></a><h4><a href="#md:elementhelper">ElementHelper</a></h4><p>Element helper functions see <a href="docs/classes/ElementHelper.html">documentation</a></p>
-<a id="md:documentation" class="tsd-anchor"></a><h3><a href="#md:documentation">Documentation</a></h3><p><a href="docs/index.html">Documentation</a></p>
+<p>All available methods can be found in the <a href="https://jvdieten.github.io/playwright-helpers/classes/RequestHelper.html">documentation</a></p>
+<a id="md:elementhelper" class="tsd-anchor"></a><h3><a href="#md:elementhelper">ElementHelper</a></h3><p>Element helper functions see <a href="https://jvdieten.github.io/playwright-helpers/classes/ElementHelper.html">documentation</a></p>
+<a id="md:documentation" class="tsd-anchor"></a><h3><a href="#md:documentation">Documentation</a></h3><p><a href="https://jvdieten.github.io/playwright-helpers/modules.html">Documentation</a></p>
 <a id="md:backers-amp-sponsors" class="tsd-anchor"></a><h3><a href="#md:backers-amp-sponsors">Backers &amp; Sponsors</a></h3><p>Support this project by becoming a <a href="https://www.paypal.com/donate/?hosted_button_id=8BHNM42PKHJ5U">sponsor</a>.</p>
 </div></div>
 <div class="col-sidebar">
@@ -80,10 +81,10 @@ This will return the 200-ok.json from location test/mocks/people</p>
 <li><a href="#md:extend-test-with-the-helpers"><span>Extend test with the helpers</span></a></li>
 <li>
 <ul>
-<li><a href="#md:usage-in-your-tests"><span>Usage in your tests</span></a></li></ul></li>
+<li><a href="#md:usage-in-your-tests"><span>Usage in your tests</span></a></li></ul></li></ul></li>
 <li><a href="#md:mockhelper"><span>Mock<wbr/>Helper</span></a></li>
 <li><a href="#md:requesthelper"><span>Request<wbr/>Helper</span></a></li>
-<li><a href="#md:elementhelper"><span>Element<wbr/>Helper</span></a></li></ul></li>
+<li><a href="#md:elementhelper"><span>Element<wbr/>Helper</span></a></li>
 <li><a href="#md:documentation"><span>Documentation</span></a></li>
 <li><a href="#md:backers-amp-sponsors"><span>Backers &amp; <wbr/>Sponsors</span></a></li></ul></li></ul></li></ul></li></ul></div></details></div>
 <div class="site-menu">
