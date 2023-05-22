@@ -1,4 +1,4 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 
 export class ElementHelper {
 
@@ -112,22 +112,24 @@ export class ElementHelper {
    * @param selector 
    * @returns <number> 
    */
-  async getElementCount(selector: string) {
+  async getElementCount(selector: string): Promise<number> {
     const elements = this.page.locator(selector);
-    return elements.count;
+    return elements.count();
   }
+
 
   /**
    * 
-   * @param selector 
-   * @param callback 
+   * @param element 
+   * @returns 
    */
-  async forEachElement(selector: string, callback: (element: Locator, index: number) => Promise<void>) {
-    const elements = this.page.locator(selector);
-    for (let index = 0; index < await elements.count(); index++) {
-      const element = elements.nth(index);
-      callback(element, index);
-    }
+  async scrollTo(element: string): Promise<void> {
+
+    const hrefElement = await this.page.$(element);
+    expect(hrefElement, `scrollTo element ${element} not found`).not.toBe(null);
+    return this.page.evaluate(
+      (el: any) =>
+        el.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" }), hrefElement);
   }
 
 }

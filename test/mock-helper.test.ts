@@ -17,7 +17,6 @@ export const test = base.extend<TestOptions>({
 
 test('mockEndpoint', async ({ page, mockHelper, requestHelper }) => {
   await page.goto('https://swapi.dev/');
-  
   await mockHelper.mockEndpoint({mockDir: 'people', url: 'https://swapi.dev/api/people/.*'}, '200-ok')
 
   const response = await requestHelper.actionAndwaitForResponse('https://swapi.dev/api/people/.*', page.click('.btn-primary'));
