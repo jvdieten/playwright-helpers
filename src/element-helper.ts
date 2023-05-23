@@ -42,8 +42,11 @@ export class ElementHelper {
     return locator;
   }
 
-
-  async confirmElementIsReadyForInteraction(locator: any | Locator) {
+  /**
+   * 
+   * @param locator 
+   */
+  async confirmElementIsReadyForInteraction(locator: Locator) {
     await locator.waitFor({
       state: "attached"
     });
@@ -52,7 +55,11 @@ export class ElementHelper {
     });
   }
 
-  async waitForElementInvisibility(locator: any | Locator) {
+  /**
+   * 
+   * @param locator 
+   */
+  async waitForElementInvisibility(locator: Locator) {
     await locator.waitFor({
       state: "detached"
     });

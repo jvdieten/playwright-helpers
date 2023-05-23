@@ -56,19 +56,29 @@ test('my test', async ({ page, requestHelper }) => {
 ```
 
 ### MockHelper
-Function for easy mock setup. You create a basedir to place your json mockfiles (in example below files are located in test/mocks folder) 
+Function for easy mock setup it is currently supporting json and xml reponses. You initiate it with a page and a baseFolder for the scenarios. The default dataType is JSON 
+this can be changed to xml. 
 
 ```ts
-new MockHelper(page, 'test/mocks')
+new MockHelper(page, <baseFolder>, <dataType?>)
 ```
 
-For each API endpoint you define a directory where you place your scenario files. In the code below the api mockDir is people and the scenario is 200-ok. 
-This will return the 200-ok.json from location test/mocks/people
+
+#### use it in your tests
 
 ```ts
-await mockHelper.mockEndpoint({
-  mockDir: 'people', url: 'https://swapi.dev/api/people/.*'}, '200-ok')
+await mockHelper.mockEndpoint(<MockEndpoint>
+)
 ```
+
+MockEndpoint {
+  url: string, regex of the url you want to mock
+  mockDir?: string, if scenario from file you can provide the folder scenarios are located 
+  scenario?: string, the name of the scenario without the extension
+  statusCode?: number, of the response default is always 200
+}
+
+See [json example](/test/mock-helper.test.ts) and [xml example](/test/mock-helper-xml.test.ts)
 
 ### RequestHelper
 

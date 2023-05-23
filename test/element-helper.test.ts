@@ -13,7 +13,7 @@ export const test = base.extend<TestOptions>({
 
 test('clickIfElementExists', async ({ page, elementHelper }) => {
   await page.goto('https://playwright.dev/');
-  await elementHelper.clickIfElementExists('.getStarted_Sjon');
+  await elementHelper.clickIfElementExists('a.getStarted_Sjon');
   expect(await page.title(), 'title should include ').toContain('Installation');
 });
 
