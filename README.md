@@ -71,12 +71,14 @@ await mockHelper.mockEndpoint(<MockEndpoint>
 )
 ```
 
+```
 MockEndpoint {
   url: string, regex of the url you want to mock
   mockDir?: string, if scenario from file you can provide the folder scenarios are located 
   scenario?: string, the name of the scenario without the extension
   statusCode?: number, of the response default is always 200
 }
+```
 
 See [json example](/test/mock-helper.test.ts) and [xml example](/test/mock-helper-xml.test.ts)
 
