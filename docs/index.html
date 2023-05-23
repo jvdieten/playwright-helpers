@@ -31,13 +31,19 @@ element helper functions.</p>
 </code><button>Copy</button></pre>
 <a id="md:usage-in-your-tests" class="tsd-anchor"></a><h5><a href="#md:usage-in-your-tests">Usage in your tests</a></h5><pre><code class="language-ts"><span class="hl-7">test</span><span class="hl-1">(</span><span class="hl-3">&#39;my test&#39;</span><span class="hl-1">, </span><span class="hl-4">async</span><span class="hl-1"> ({ </span><span class="hl-0">page</span><span class="hl-1">, </span><span class="hl-0">requestHelper</span><span class="hl-1"> }) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">page</span><span class="hl-1">.</span><span class="hl-7">goto</span><span class="hl-1">(</span><span class="hl-3">&#39;https://playwright.dev/&#39;</span><span class="hl-1">);</span>
 </code><button>Copy</button></pre>
-<a id="md:mockhelper" class="tsd-anchor"></a><h3><a href="#md:mockhelper">MockHelper</a></h3><p>Function for easy mock setup. You create a basedir to place your json mockfiles (in example below files are located in test/mocks folder) </p>
-<pre><code class="language-ts"><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-7">MockHelper</span><span class="hl-1">(</span><span class="hl-0">page</span><span class="hl-1">, </span><span class="hl-3">&#39;test/mocks&#39;</span><span class="hl-1">)</span>
+<a id="md:mockhelper" class="tsd-anchor"></a><h3><a href="#md:mockhelper">MockHelper</a></h3><p>Function for easy mock setup it is currently supporting json and xml reponses. You initiate it with a page and a baseFolder for the scenarios. The default dataType is JSON 
+this can be changed to xml. </p>
+<pre><code class="language-ts"><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-7">MockHelper</span><span class="hl-1">(</span><span class="hl-0">page</span><span class="hl-1">, &lt;</span><span class="hl-5">baseFolder</span><span class="hl-1">&gt;, &lt;</span><span class="hl-5">dataType</span><span class="hl-1">?&gt;)</span>
 </code><button>Copy</button></pre>
-<p>For each API endpoint you define a directory where you place your scenario files. In the code below the api mockDir is people and the scenario is 200-ok. 
-This will return the 200-ok.json from location test/mocks/people</p>
-<pre><code class="language-ts"><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">mockHelper</span><span class="hl-1">.</span><span class="hl-7">mockEndpoint</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-0">mockDir:</span><span class="hl-1"> </span><span class="hl-3">&#39;people&#39;</span><span class="hl-1">, </span><span class="hl-0">url:</span><span class="hl-1"> </span><span class="hl-3">&#39;https://swapi.dev/api/people/.*&#39;</span><span class="hl-1">}, </span><span class="hl-3">&#39;200-ok&#39;</span><span class="hl-1">)</span>
+<a id="md:use-it-in-your-tests" class="tsd-anchor"></a><h4><a href="#md:use-it-in-your-tests">use it in your tests</a></h4><pre><code class="language-ts"><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">mockHelper</span><span class="hl-1">.</span><span class="hl-7">mockEndpoint</span><span class="hl-1">(&lt;</span><span class="hl-5">MockEndpoint</span><span class="hl-1">&gt;</span><br/><span class="hl-1">)</span>
 </code><button>Copy</button></pre>
+<p>MockEndpoint {
+  url: string, regex of the url you want to mock
+  mockDir?: string, if scenario from file you can provide the folder scenarios are located 
+  scenario?: string, the name of the scenario without the extension
+  statusCode?: number, of the response default is always 200
+}</p>
+<p>See <a href="/test/mock-helper.test.ts">json example</a> and <a href="/test/mock-helper-xml.test.ts">xml example</a></p>
 <a id="md:requesthelper" class="tsd-anchor"></a><h3><a href="#md:requesthelper">RequestHelper</a></h3><p>Functionality like in Cypress where you can wait for intercept. First paramater is the regex url of the endpoint and second paramater is the action you want to perform.</p>
 <pre><code class="language-ts"><span class="hl-1">  </span><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">result</span><span class="hl-1"> = </span><span class="hl-2">await</span><span class="hl-1"> </span><span class="hl-0">requestHelper</span><span class="hl-1">.</span><span class="hl-7">actionAndwaitForResponse</span><span class="hl-1">(</span><br/><span class="hl-1">    </span><span class="hl-3">&quot;indexes/.*/queries&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-0">page</span><span class="hl-1">.</span><span class="hl-7">type</span><span class="hl-1">(</span><span class="hl-3">&#39;.DocSearch-Input&#39;</span><span class="hl-1">, </span><span class="hl-3">&#39;network&#39;</span><span class="hl-1">));</span>
 </code><button>Copy</button></pre>
@@ -83,6 +89,9 @@ This will return the 200-ok.json from location test/mocks/people</p>
 <ul>
 <li><a href="#md:usage-in-your-tests"><span>Usage in your tests</span></a></li></ul></li></ul></li>
 <li><a href="#md:mockhelper"><span>Mock<wbr/>Helper</span></a></li>
+<li>
+<ul>
+<li><a href="#md:use-it-in-your-tests"><span>use it in your tests</span></a></li></ul></li>
 <li><a href="#md:requesthelper"><span>Request<wbr/>Helper</span></a></li>
 <li><a href="#md:elementhelper"><span>Element<wbr/>Helper</span></a></li>
 <li><a href="#md:documentation"><span>Documentation</span></a></li>
