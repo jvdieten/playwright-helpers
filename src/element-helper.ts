@@ -10,6 +10,25 @@ export class ElementHelper {
 
   /**
    * 
+   * Get the count of all the elements, iterate through the elements and return array of the results
+   * 
+   * @param locator 
+   * @param action 
+   * @returns 
+   */
+  async forEachMatch<T>(locator: Locator, action: (currentLocator: Locator) => Promise<T>): Promise<T[]> {
+    const locatorCount = await locator.count();
+    const results: T[] = [];
+    for (let i = 0; i < locatorCount; i++) {
+      const currentLocator = locator.nth(i);
+      const result = await action(currentLocator);
+      results.push(result);
+    }
+    return results;
+  }
+
+  /**
+   * 
    * @param selector 
    * @returns 
    */

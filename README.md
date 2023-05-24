@@ -22,7 +22,7 @@ $ npm install playwright-helpers --save-dev
 
 Currently this package consists of the following helpers:
 
-- MockHelper: for mocking endpoints and return predefined json
+- MockHelper: for easy mocking of endpoints
 - RequestHelper: methods for waiting network requests 
 - ElementHelper: methods for element interactions 
 

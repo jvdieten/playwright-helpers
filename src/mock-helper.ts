@@ -22,8 +22,8 @@ export class MockHelper {
   }
 
   /**
-   * Method to mock an endpoint and return a <scenario>.json placed in the rootdir
-   * 
+   * Method to mock an endpoint and optional return a <scenario> placed in the rootdir
+   * Default returns empty response and status code 200 can be changed via MockEndpoint object properties
    * 
    * @param endpoint 
    *
