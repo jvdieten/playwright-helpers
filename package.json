@@ -2,6 +2,10 @@
   "name": "playwright-helpers",
   "version": "1.0.6",
   "description": "Playwright test helpers",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jvdieten/playwright-helpers"
+  },
   "main": "build/src/main",
   "typings": "build/src/main",
   "devDependencies": {
@@ -28,7 +32,7 @@
   "scripts": {
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.json",
-    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "build:release": "npm run clean && tsc -p tsconfig.release.json && npm run docs",
     "docs": "npx typedoc src/main.ts",
     "lint": "eslint . --ext .ts --ext .mts",
     "test": "npx playwright test",
